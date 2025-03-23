@@ -51,6 +51,25 @@ Map
 - List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items, that your dashboard library supports.
 - Finally, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project, you were confident you would use a given plot to display an insight, but later, you chose another plot type).
 
+project/
+├── app.py                 # Main application entry point
+├── pages/                 # Additional pages for the multi-page app
+│   ├── 1_project_summary.py
+│   ├── 2_leaf_visualizer.py
+│   ├── 3_ml_prediction.py
+│   ├── 4_hypothesis.py
+│   └── 5_model_performance.py
+├── src/                   # Source code modules
+│   ├── data_management.py         # Functions for data handling
+│   ├── predictive_analysis.py     # Functions for model predictions
+│   └── visualization.py           # Functions for data visualization
+├── model/                 # Saved model files
+│   └── cnn_model.h5       # Your trained CNN model
+├── assets/                # Static assets
+│   ├── sample_images/     # Sample images for download
+│   └── css/               # Custom CSS styling
+└── README.md              # Project documentation
+
 ## Unfixed Bugs
 
 - You will need to mention unfixed bugs and why they were unfixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable for consideration, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
