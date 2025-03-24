@@ -1,16 +1,21 @@
 import streamlit as st
+from src.page_manager import MultiPage
 
-def main():
-    st.set_page_config(
-        page_title="Cherry Leaf Powdery Mildew Detector",
-        page_icon="🍒",
-    )
+# load page scripts
+from app_pages.project_summary import project_summary_body
+from app_pages.image_visualizer import image_visualizer_body
+from app_pages.mildew_detector import mildew_detector_body
+from app_pages.project_hypothesis import project_hypothesis_body
+from app_pages.ml_performance_metrics import ml_performance_metrics
 
-    st.title("Cherry Leaf Powdery Mildew Detection")
-    st.write("""
-    This application uses a CNN model to detect powdery mildew in cherry leaves.
-    I will add a sidebar to browse through different pages.
-    """)
+app = MultiPage(app_name="Cherry Leaf Powdery Mildew Detector")
 
-if __name__ == "__main__":
-    main()
+# Add app pages
+app.add_page("Project Summary", project_summary_body)
+app.add_page("Image Visualizer", image_visualizer_body)
+app.add_page("Mildew Detector", mildew_detector_body)
+app.add_page("Project Hypotheses", project_hypothesis_body)
+app.add_page("ML Performance Metrics", ml_performance_metrics)
+
+# Run app
+app.run()

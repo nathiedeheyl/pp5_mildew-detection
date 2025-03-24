@@ -7,6 +7,10 @@ class MultiPage:
         self.app_name = app_name
         self.pages = []
 
+        st.set_page_config(
+        page_title="Cherry Leaf Powdery Mildew Detector",
+        page_icon="🍒",)
+
     def add_page(self, title, func):
         """
         Add a new page to the app
@@ -17,6 +21,7 @@ class MultiPage:
         """
         Run the multipage app
         """
-        st.sidebar.title(self.app_name)
-        page = st.sidebar.radio("Navigation", self.pages, format_func=lambda page: page["title"])
+        st.title("Cherry Leaf Powdery Mildew Detection")
+        st.write("This application uses a CNN model to detect powdery mildew in cherry leaves.")
+        page = st.sidebar.radio('Page Navigation', self.pages, format_func=lambda page: page["title"])
         page["function"]()
