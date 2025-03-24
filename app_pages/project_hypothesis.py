@@ -1,7 +1,17 @@
 import streamlit as st
 
 def project_hypothesis_body():
+    """
+    Display project hypothesis, observations, and final validation
+    """
     
-    st.title("### Project Hypotheses and Validation")
+    st.write("### Project Hypothesis and Validation")
 
-    st.write("Explain the project's hypotheses here that was made at the start, and what conclusions can be drawn from running the analysis: Is the hypothesis validated?")
+    st.success(
+        f"* Hypothesis: Cherry leaves affected by powdery mildew exhibit distinct visual patterns, "
+        f"e.g. white powdery spots, that clearly differentiate them from healthy leaves.\n\n"
+        f"* Validation: The Image Montage (see 'Image Visualizer') reveals that leaves infected "
+        f"with powdery mildew often display visible white patches. "
+        f"However, the difference between average image of both classes analysis "
+        f"does not clearly highlight distinct patterns to differentiate."
+        )
