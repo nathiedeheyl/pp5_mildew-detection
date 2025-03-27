@@ -2,7 +2,19 @@
 
 ## Project Overview
 
-...
+[Am I Responsive Hero Image]
+
+The Mildew Detection project is a data science and machine learning project developed as part of the "Predictive Analytics" specialization for the Code Institute final portfolio project. The project employs a machine learning model to differentiate between two image categories: healthy cherry leaves and those infected with powdery mildew.
+
+The business context involves a client in the agri-food sector facing challenges with powdery mildew infections on their crops. Currently, disease detection is conducted manually, a process that is both labor-intensive and time-consuming. To enhance efficiency and reliability, this project proposes an ML-based solution that automates the identification of infected leaves from images.
+By implementing this model, the client can reduce resource expenditures, streamline disease detection, and ensure a more accurate and timely response to infections.
+
+The project is deployed as a Streamlit app on Render. You can access the live version here: [insert link].
+
+## Dataset
+
+* The dataset is obtained from Kaggle ([See Kaggle Dataset](https://www.kaggle.com/datasets/codeinstitute/cherry-leaves))
+* It consists of over 4,000 images collected from the client’s cherry tree plantations. The images are categorized into two classes: healthy leaves and those affected by powdery mildew, a fungal infection that appears as a white, powder-like coating on the surface of the leaves. The client is concerned that the outbreak may be impacting crop quality, posing a potential risk to their business.
 
 ## ML Business Case
 
