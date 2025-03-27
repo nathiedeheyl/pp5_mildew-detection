@@ -13,8 +13,17 @@ The project is deployed as a Streamlit app on Render. You can access the live ve
 
 ## Dataset
 
-* The dataset is obtained from Kaggle ([See Kaggle Dataset](https://www.kaggle.com/datasets/codeinstitute/cherry-leaves))
-* It consists of over 4,000 images collected from the client’s cherry tree plantations. The images are categorized into two classes: healthy leaves and those affected by powdery mildew, a fungal infection that appears as a white, powder-like coating on the surface of the leaves. The client is concerned that the outbreak may be impacting crop quality, posing a potential risk to their business.
+The dataset used in this project is obtained from Kaggle ([See Kaggle Dataset](https://www.kaggle.com/datasets/codeinstitute/cherry-leaves)). It consists of over 4,000 images collected from the client’s cherry tree plantations. These images belong to two distinct categories:
+* **Healthy Leaves**: Cherry leaves with no visible signs of disease
+* **Infected Leaves**: Leaves affected by powdery mildew, a fungal infection that appears as a white, powder-like coating on the surface of the leaves
+
+**Dataset Relevance to Business Understanding**
+
+The client is concerned that the outbreak may be impacting crop quality. By analyzing a dataset containing real-world images of healthy and infected leaves, the project ensures the model learns to distinguish between the two categories effectively
+
+The dataset consists of image files categorized into separate directories (/healthy; /powdery_mildew) for supervised machine learning tasks.
+
+This dataset is used for achieving the project objectives, as it provides the necessary visual features to train a Convolutional Neural Network model to classify cherry leaves with high accuracy.
 
 ## Business Requirements
 
