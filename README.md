@@ -27,22 +27,28 @@ This dataset is used for achieving the project objectives, as it provides the ne
 
 ## Business Requirements
 
-The primary objective of this project is to develop a machine learning model capable of detecting powdery mildew in cherry leaves from uploaded photographs. This will replace the current manual inspection process. By automating disease detection, the client aims to reduce operational costs, improve treatment efficiency, and maintain crop quality.
-
-Key stakeholders for this project include the agricultural business (Farmy & Foods) and their customers, who rely on high-quality produce. Given the potential scalability of this solution, its success may open the door for similar ML applications in detecting plant diseases across other crops.
-
-The Business Requirements are: 
+The client has outlined two key Business Requirements: 
 - 1 - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
 - 2 - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
 
-To meet the business requirements effectively, the following steps must be addressed:
+**Aligning Business Requirements with the Dataset**
+
+The primary objective of this project is to develop a machine learning model capable of detecting powdery mildew in cherry leaves from uploaded photographs. This will replace the current manual inspection process. By automating disease detection, the client aims to reduce operational costs, improve treatment efficiency, and maintain crop quality.
+
+Since the dataset contains a balanced representation of both healthy and diseased leaves, it allows for effective training and testing of a classification model.
+
+![Class Distribution Figure](assets/images/readme1_classdistrib.png)
+
+Key stakeholders for this project include the agricultural business (Farmy & Foods) and their customers, who rely on high-quality produce.
+
+By using this dataset, the project aligns with the CRISP-DM "Business Understanding" phase, ensuring that the machine learning solution is directly driven by the client’s problem statement and business needs.
+
+To meet the business requirements effectively, the following steps are necessary:
+* The prepared dataset should provide representative images of both healthy and infected leaves, as well as visualizations showcasing variations within each category
 * The model must accurately classify leaves as healthy or infected with powdery mildew
-* The system should process ONE OR MULTIPLE images efficiently
+* The system should process images uploaded on the dashboard by the client efficiently
 * Predictions should be generated quickly to facilitate real-time decision-making
 * The output should be easy to understand for both technical and non-technical users
-* The prepared dataset should provide representative images of both healthy and infected leaves, as well as visualizations showcasing variations within each category
-
-To fulfill these requirements, a Convolutional Neural Network will be developed to classify the images. If successful, this approach could be expanded to other crops facing similar challenges.
 
 ## ML Business Case
 
