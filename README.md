@@ -30,6 +30,7 @@ This dataset is used for achieving the project objectives, as it provides the ne
 The client has outlined two key Business Requirements: 
 - 1 - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
 - 2 - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
+- 3 - The criteria for the performance goal of the predictions has been agreed on a degree of 97% accuracy.
 
 **Aligning Business Requirements with the Dataset**
 
@@ -43,9 +44,21 @@ Key stakeholders for this project include the agricultural business (Farmy & Foo
 
 By using this dataset, the project aligns with the CRISP-DM "Business Understanding" phase, ensuring that the machine learning solution is directly driven by the client’s problem statement and business needs.
 
+## Rationale to Map Business Requirements to Data Visualisations and ML Tasks
+
+To ensure the machine learning solution aligns with business needs, each business requirement is linked to specific data visualizations and ml tasks.
+
+### User Stories & Mapping
+
+| Business Requirement | User Story | Data Visualisation | ML Task |
+|----------------------|------------|--------------------|---------|
+| **R1: Visually differentiate a healthy cherry leaf from one with powdery mildew** | As a **data scientist (client)**, I want to **compare healthy and infected leaves visually**, so that I can **understand the features that distinguish a healthy from a diseased leaf**. | Compute and plot the size of the average image, visualize class distributions, plot average and variability of images per label, image montage | Feature extraction (the CNN model learns the features that are specific to healthy and diseased leaves to distinguish them) |
+| **R2: Predict if a cherry leaf is healthy or infected** | As a **manager (client)**, I want to **automate disease detection from images**, so that I can **take action to protect crops and save on cost for ressources**. | Image augmentation plots (to ensure the dataset has diverse image data for the model to learn from and prevent overfitting) | Model training, hyperparameter tuning (e.g. adjusting batch size), dropout layers |
+| **R3: Ensure high model accuracy (97%)** | As a **business owner (client)**, I want a **highly accurate disease detection model**, so that I can **reduce losses and improve efficiency of the detection process**. | Model evaluation plots (learning curves: accuracy/loss) | Model evaluation on test set, Model evaluation on new random data |
+
 To meet the business requirements effectively, the following steps are necessary:
-* The prepared dataset should provide representative images of both healthy and infected leaves, as well as visualizations showcasing variations within each category
-* The model must accurately classify leaves as healthy or infected with powdery mildew
+* The prepared dataset should provide representative images of both healthy and infected leaves, as well as visualizations showing variations within each category (image montage, average image, class distribution plot, average and variability per label plot, image augmentation)
+* The model must accurately classify leaves as healthy or infected with powdery mildew (Model validation and evaluation)
 * The system should process images uploaded on the dashboard by the client efficiently
 * Predictions should be generated quickly to facilitate real-time decision-making
 * The output should be easy to understand for both technical and non-technical users
@@ -72,17 +85,7 @@ The ml model can identify a cherry leaf as either healthy or powdery mildew-infe
 #### Validation 2
 Train a binary classification model and evaluate its accuracy on test data.
 
-## Rationale to map business requirements to Data Visualisations and ML tasks
 
-=> What exactly is the Rationale?
-
-Map
-
-| Business need | Data Visualisation | Technical implementation: ML task |
-|---------------|--------------------|-----------------------------------|
-|R1: Visually differentiate a healthy cherry leaf from one with powdery mildew | 1. Create average images [and other tasks, check walkthrough] for each class | Feature Engineering/Extraction = "figure out what features determine healthy or infected" |
-| R2: Predict if a cherry leaf is healthy or infected | Plot class distribution | In case: image augmentation and for sure: hyperparameters |
-| Model accuracy of 97% | ... | Model evaluation and performance comparison |
 
 ## Dashboard Design
 
