@@ -65,13 +65,64 @@ To meet the business requirements effectively, the following steps are necessary
 
 ## ML Business Case
 
-`"frame the business case using methods covered in the course"`
+**Business Case for each Machine Learning task which must include:**
 
-The current process of leaf inspection is time-consuming and difficult to scale. It requires specific knowledge and expertise, which causes high costs in human resources and their training. This process is prone to error and inconsistency.
+1 - _The aim behind the predictive analytics task_
 
-Therefore, a machine learning project offers an attractive solution. The ml model automates the inspection and classification process which makes the process faster and scalable. It reduces labour costs and makes classification decisions analytically transparent. It improves accuracy.
+The current process of manual leaf inspection is time-consuming and difficult to scale. It requires specific knowledge and expertise, which causes high costs in human resources and their training. This process is prone to error and inconsistency.
 
-Potential risks of a machine learning solution are the following: The model might not adjust to new data and have difficulties categorising deviations, e.g. mutations of the powdery mildew. Also, the size of the model might eventually increase, and its future cost has to be evaluated. Mitigation strategies are to continuously use adequate training data and augmentations, as well as implement data size limitations, e.g. reduce image size resolution.
+The goal of this machine learning model is to automate the detection of powdery mildew in cherry leaves using image classification. This replaces the current process of manual leaf inspection. By automating the process, the client can reduce the cost of human labour, ressources and improve the efficienty and accuracy of the inspection process. The ml model also makes classification decisions analytically transparent.
+
+2 - _The learning method_
+
+This project uses a Convolutional Neural Network trained from scratch. A convolutional neural networks is ideal for the task of image classification because it automatically learns patterns and details (e.g. edges, textures or shapes) that help the model recognize the difference between healthy and powdery mildew infected leaves.
+
+3 - _The ideal outcome for the process_
+
+The model should achieve at least 97% classification accuracy on test data.
+
+4 - _Success/failure metrics_
+
+4.1 - _Success:_
+* Test set accuracy ≥ 97%
+* Learning curves show stable exponential curve without overfitting
+
+4.2 - _Failure:_
+* Test accuracy below 97%
+* Indication to overfitting: Large gap between training and validation learning curve
+* Model struggles to differentiate between healthy and powdery mildew infected leaves
+
+5 - _Model output and its relevance for the user_
+
+* The model takes an input image and outputs the predicted class probability for either "healthy" or "infected" with powdery mildew.
+* Since the `softmax` activation function is used to create and train the model, the client can see the confidence of the model in predicting whether the cherry leaf is healthy or infected.
+* The higher the probability, the more confident the model is in its classification.
+* This allows the client in the agricultural industry to quickly assess the health of the cherry leaves on their plantation and make informed decisions about crop protection.
+
+6 - _Heuristics and training data used_
+
+6.1 - **Data Augmentation**
+
+To improve generalization and prevent overfitting, the dataset was augmented using the following transformations:
+* Rotation range = 20 degree
+  * Help the model recognize leaves from different orientations
+* Width and height shift of 10%
+  * Simulate variations in image positioning
+* 10 % shear and zoom range
+  * For perspective distortions and size variations
+* Horizontal and vertical flip
+  * For different leaf angles
+* Fill mode set to ‘nearest’
+  * Fill in missing pixels when shifting or rotating images
+* Rescale 1:255
+  * Normalize pixel values for better model performance
+
+6.2 - **Dataset Splitting**
+
+The dataset was split into three subsets:
+* Training Set = 70%
+* Validation Set = 10%
+* Test Set = 20%
 
 
 ## Hypothesis
