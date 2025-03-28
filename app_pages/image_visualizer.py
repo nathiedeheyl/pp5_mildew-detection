@@ -1,7 +1,5 @@
 import streamlit as st
 import os
-import pandas as pd
-import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 from matplotlib.image import imread
@@ -30,11 +28,15 @@ def image_visualizer_body():
       st.image(avg_infected, caption='Infected Leaf - Average and Variability')
       st.image(avg_healthy, caption='Healthy Leaf - Average and Variability')
 
+      st.write("These images show the average image of powdery mildew infected and healthy leaves. Differences in aspects like color or shape help the model to distinguish between the two classes.")
+      
       st.write("---")
     
     if st.checkbox("Difference Between Average Images"):
       diff_between_avgs = plt.imread(f"outputs/{version}/avg_diff.png")
       st.image(diff_between_avgs, caption='Difference between Average Images')
+
+      st.write("Here we can see how the average image of a healthy leaf and average image of an infected leaf differ on average. This is helpful for feature extraction.")
 
     if st.checkbox("Image Montage"):
       st.write("* To refresh the montage, click on the 'Create Montage' button")
@@ -46,8 +48,12 @@ def image_visualizer_body():
         
       label_to_display = st.selectbox("Select Label", options=labels)
 
-      if st.button("Create Montage"):      
+      if st.button("Create Montage"):
+
+        st.write(f"This montage shows us the diversity of images of one category in the dataset.")
+
         image_montage(dir_path=os.path.join(my_data_dir, "validation"), label_to_display=label_to_display, nrows=8, ncols=3, figsize=(10,25))
+
       st.write("---")
 
 
@@ -58,7 +64,7 @@ def image_montage(dir_path, label_to_display, nrows, ncols, figsize=(15,10)):
     sns.set_style("white")
     labels = os.listdir(dir_path)
 
-    # Subset the class you are interested in displaying
+    # Filter images per label
     if label_to_display in labels:
         
         # Get list of images in selected folder, check if montage space > subset size
@@ -92,9 +98,6 @@ def image_montage(dir_path, label_to_display, nrows, ncols, figsize=(15,10)):
         plt.tight_layout()
         
         st.pyplot(fig=fig)
-
-        # why commented out?
-        # plt.show()
 
     else:
         print("The selected label does not exist.")
