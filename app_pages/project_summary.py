@@ -6,7 +6,7 @@ def project_summary_body():
     Display summary of the project and its objectives
     """
 
-    st.title("Project Summary: The Powdery Mildew Detector for Cherry Leaves")
+    st.write("### Project Summary: The Powdery Mildew Detector for Cherry Leaves")
 
     st.info("""
     **General Information**
