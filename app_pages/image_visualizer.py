@@ -19,7 +19,7 @@ def image_visualizer_body():
     st.write("### Cherry Leaf Image Visualizer")
 
     st.info(
-        "* This tool helps explore cherry leaf images and visualize"
+        "* This tool helps explore cherry leaf images and visualize "
         "patterns related to powdery mildew."
         )
 
@@ -38,8 +38,8 @@ def image_visualizer_body():
         st.image(avg_healthy, caption='Healthy Leaf - Average and Variability')
 
         st.write(
-            "These images show the average image of powdery mildew infected"
-            "and healthy leaves. Differences in aspects like color or shape"
+            "These images show the average image of powdery mildew infected "
+            "and healthy leaves. Differences in aspects like color or shape "
             "help the model to distinguish between the two classes."
             )
 
@@ -52,15 +52,18 @@ def image_visualizer_body():
             caption='Difference between Average Images'
             )
 
-        st.write(
-            "Here we can see how the average image of a healthy leaf"
-            "and average image of an infected leaf differ on average."
-            "This is helpful for feature extraction."
-            )
+        st.write("""
+            These images show how the average image of a healthy leaf 
+            and average image of a with powdery mildew infected leaf 
+            differ on average. \n
+            This is helpful for feature extraction.
+            """)
+
+        st.write("---")
 
     if st.checkbox("Image Montage"):
         st.write(
-                "* To refresh the montage, click on the"
+                "* To create or refresh the montage, click on the "
                 "'Create Montage' button"
                 )
         my_data_dir = 'inputs/mildew_dataset/cherry-leaves'
@@ -79,8 +82,8 @@ def image_visualizer_body():
         if st.button("Create Montage"):
 
             st.write(
-                "This montage shows us the diversity of images of"
-                "one category in the dataset."
+                "The image montage shows a sample of the diversity "
+                "of images per category (label) in the dataset."
                 )
 
             image_montage(
@@ -112,7 +115,7 @@ def image_montage(dir_path, label_to_display, nrows, ncols, figsize=(15, 10)):
         if nrows * ncols < len(images_list):
             img_idx = random.sample(images_list, nrows * ncols)
         else:
-            print(
+            st.write(
                 f"Decrease nrows or ncols to create your montage. \n"
                 f"There are {len(images_list)} images in your subset, "
                 f"but you requested a montage with {nrows * ncols} spaces."
@@ -131,7 +134,7 @@ def image_montage(dir_path, label_to_display, nrows, ncols, figsize=(15, 10)):
             img_shape = img.shape
             axes[plot_idx[x][0], plot_idx[x][1]].imshow(img)
             axes[plot_idx[x][0], plot_idx[x][1]].set_title(
-                "Width {img_shape[1]}px x Height {img_shape[0]}px"
+                f"Width {img_shape[1]}px x Height {img_shape[0]}px"
                 )
             axes[plot_idx[x][0], plot_idx[x][1]].set_xticks([])
             axes[plot_idx[x][0], plot_idx[x][1]].set_yticks([])
@@ -140,5 +143,5 @@ def image_montage(dir_path, label_to_display, nrows, ncols, figsize=(15, 10)):
         st.pyplot(fig=fig)
 
     else:
-        print("The selected label does not exist.")
-        print(f"Available labels: {labels}")
+        st.error("The selected label does not exist.")
+        st.error(f"Available labels: {labels}")
