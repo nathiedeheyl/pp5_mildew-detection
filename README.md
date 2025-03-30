@@ -124,43 +124,61 @@ The dataset was split into three subsets:
 * Validation Set = 10%
 * Test Set = 20%
 
-
-## Hypothesis
-### Hypothesis 1
-Healthy and powdery mildew-infected cherry leaves have visual differences that can be quantified through image analysis, e.g. white blotches on infected leaves.
-#### Validation 1
-Compare average images, variability images, and visual features across the two classes (healthy and infected).
-
-### Hypothesis 2
-The ml model can identify a cherry leaf as either healthy or powdery mildew-infected with at least 97% accuracy.
-#### Validation 2
-Train a binary classification model and evaluate its accuracy on test data.
-
-
-
 ## Dashboard Design
 
-- List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items, that your dashboard library supports.
-- Finally, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project, you were confident you would use a given plot to display an insight, but later, you chose another plot type).
+1 - The Project Summary page: This page has important information about the background and origin of the project and the problem it's aiming to solve. Also included on the summary page are the business requirements set in agreement with the customer, which define a successful project, and a link to the README file for further information.
 
-project/
-├── app.py                 # Main application entry point
-├── pages/                 # Additional pages for the multi-page app
-│   ├── 1_project_summary.py
-│   ├── 2_leaf_visualizer.py
-│   ├── 3_ml_prediction.py
-│   ├── 4_hypothesis.py
-│   └── 5_model_performance.py
-├── src/                   # Source code modules
-│   ├── data_management.py         # Functions for data handling
-│   ├── predictive_analysis.py     # Functions for model predictions
-│   └── visualization.py           # Functions for data visualization
-├── model/                 # Saved model files
-│   └── cnn_model.h5       # Your trained CNN model
-├── assets/                # Static assets
-│   ├── sample_images/     # Sample images for download
-│   └── css/               # Custom CSS styling
-└── README.md              # Project documentation
+![Dashboard Design 1](assets/images/dashbaord_design1.png)
+
+2 - The app page "Image visualizer": Important information for the user is displayed on this page. The customer and ultimately the user of the project site can see in more detail what image data the model is based on. Three checkboxes collapse information and example pictures of the average and variability images, the visual differences between the average images of both classes, and an image montage to show a random sample of image data that the model has been trained and validated on. To obtain the image montage, the user has to select one of the two labels from a dropdown menu and click the button saying 'Create Montage'. Loading can take a short moment. On top of the image montage, the user gets an info message with a brief explanation on how those performed actions help to meet business requirement 1.
+
+![Dashboard Design 2](assets/images/dashbaord_design2.png)
+
+![Dashboard Design 3](assets/images/dashbaord_design3.png)
+
+![Dashboard Design 4](assets/images/dashbaord_design4.png)
+
+The image montage shows a total of 3 colums with 8 rows selecting image data from all the subdirectories of the label selected:
+
+![Dashboard Design 5](assets/images/dashbaord_design5.png)
+
+3 - Mildew Detector page: The heart of the project. This is the tool that the client was looking for to improve their overall business, and with the successful implementation of this tool, business requirement 2 is met, by which the client can determine whether a cherry leaf is healthy or infected with powdery mildew by relying on the model's prediction.
+
+![Dashboard Design 6](assets/images/dashbaord_design6.png)
+
+The user can either click the 'Browse files' button or drag and drop their image file onto the uploading field. 
+
+![Dashboard Design 7](assets/images/dashbaord_design7.png)
+
+On the dashboard will then be displayed the uploaded image, along with a clear feedback statement on the predicted label of the image uploaded image, as well as a bar chart showcasing the probability of this class prediction by the model:
+
+![Dashboard Design 8](assets/images/dashbaord_design8.png)
+
+And finally, an analysis report with a link giving the option to download a report of the analyzed images: 
+
+![Dashboard Design 9](assets/images/dashbaord_design9.png)
+
+![Dashboard Design 91](assets/images/dashbaord_design91.png)
+
+Clicking this link downloads a CSV file named using the moment's timestamp down to the second to create an individual file name.
+
+![Dashboard Design 92](assets/images/dashbaord_design92.png)
+
+4 - Project Hypothesis page... 
+
+
+
+5 - ML Performance Metrics page: To meet business requirement 3, the ml performance metrics page showcases what methods have been used to prepare, train, validate and evaluate the model. First, the label frequencies per splitted dataset (train, validation, test image dataset):
+
+![Dashboard Design 93](assets/images/dashbaord_design93.png)
+
+Second, the history of model training performance figures: 
+
+![Dashboard Design 94](assets/images/dashbaord_design94.png)
+
+Third, forth, and lastly - the generalized model loss and accuracy performance metrics as a table and conclusions, as well as conclusions to the business case: 
+
+![Dashboard Design 95](assets/images/dashbaord_design95.png)
 
 ## Unfixed Bugs
 
@@ -184,6 +202,19 @@ project/
 ## Main Data Analysis and Machine Learning Libraries
 
 - Here, you should list the libraries used in the project and provide an example(s) of how you used these libraries.
+
+## Testing
+
+### Python Code Validation
+
+| App page | Screenshot before | Fixes | Screenshot validated |
+|----------|-------------------|-------|----------------------|
+| Project summary | ![pep8 validator image 1](assets/images/readme2_pep8-1.png) | fix small syntax errors and apply PEP8 formatting fixes | ![pep8 validator image 2](assets/images/readme2_pep8-2.png) |
+| page_manager | ![pep8 validator image 3](assets/images/readme2_pep8-3.png) | fix small syntax errors and apply PEP8 formatting fixes | ![pep8 validator image 4](assets/images/readme2_pep8-4.png) |
+| image_visualizer | ![pep8 validator image 5](assets/images/readme2_pep8-5.png) | fix small syntax errors and apply PEP8 formatting fixes | ![pep8 validator image 6](assets/images/readme2_pep8-6.png) |
+| mildew_detector | ![pep8 validator image 7](assets/images/readme2_pep8-7.png) | fix small syntax errors and apply PEP8 formatting fixes | ![pep8 validator image 8](assets/images/readme2_pep8-8.png) |
+| mildew_detector | ![pep8 validator image 7](assets/images/readme2_pep8-7.png) | fix small syntax errors and apply PEP8 formatting fixes | ![pep8 validator image 8](assets/images/readme2_pep8-8.png) |
+| ml_performance_metrics | ![pep8 validator image 9](assets/images/readme2_pep8-9.png) | fix small syntax errors and apply PEP8 formatting fixes | ![pep8 validator image 91](assets/images/readme2_pep8-91.png) |
 
 ## Credits
 
