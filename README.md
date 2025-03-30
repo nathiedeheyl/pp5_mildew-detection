@@ -44,6 +44,22 @@ Key stakeholders for this project include the agricultural business (Farmy & Foo
 
 By using this dataset, the project aligns with the CRISP-DM "Business Understanding" phase, ensuring that the machine learning solution is directly driven by the client’s problem statement and business needs.
 
+## Hypothesis
+
+### Hypothesis: Visual Differentiation Between Healthy and Infected Leaves
+
+Hypothesis One is that cherry leaves affected by powdery mildew show distinct visual characteristics compared to healthy leaves, making it possible to differentiate them through image analysis. For instance, infected leaves are expected to display light, irregular spots, in contrast to the general green color of healthy leaves.
+
+#### Validation
+
+To test Hypothesis One, the average image and variability for each class ('healthy' and infected with 'powdery mildew') is generated to highlight dividing patterns.
+
+![Average and Variability per class Image](assets/images/readme3_avrnvar1.png)
+
+![Average and Variability per class Image](assets/images/readme3_avrnvar2.png)
+
+These visualizations confirm that powdery mildew leaves typically reveal a speckled pattern not present in healthy leaves, supporting the hypothesis. The ML model trained on this dataset also achieves high predictive accuracy (99%), validating that these differences are significant enough for automated classification.
+
 ## Rationale to Map Business Requirements to Data Visualisations and ML Tasks
 
 To ensure the machine learning solution aligns with business needs, each business requirement is linked to specific data visualizations and ml tasks.
@@ -65,7 +81,7 @@ To meet the business requirements effectively, the following steps are necessary
 
 ## ML Business Case
 
-**Business Case for each Machine Learning task which must include:**
+**Business Case for each Machine Learning task:**
 
 1 - _The aim behind the predictive analytics task_
 
@@ -162,11 +178,11 @@ And finally, an analysis report with a link giving the option to download a repo
 
 Clicking this link downloads a CSV file named using the moment's timestamp down to the second to create an individual file name.
 
-![Dashboard Design 92](assets/images/dashbaord_design92.png)
+![Dashboard Design 96](assets/images/dashbaord_design96.png)
 
-4 - Project Hypothesis page... 
+4 - The Project Hypothesis page summarizes the project's hypothesis and it's validation.
 
-
+![Dashboard Design 96](assets/images/dashbaord_design96.png)
 
 5 - ML Performance Metrics page: To meet business requirement 3, the ml performance metrics page showcases what methods have been used to prepare, train, validate and evaluate the model. First, the label frequencies per splitted dataset (train, validation, test image dataset):
 
@@ -213,8 +229,14 @@ Third, forth, and lastly - the generalized model loss and accuracy performance m
 | page_manager | ![pep8 validator image 3](assets/images/readme2_pep8-3.png) | fix small syntax errors and apply PEP8 formatting fixes | ![pep8 validator image 4](assets/images/readme2_pep8-4.png) |
 | image_visualizer | ![pep8 validator image 5](assets/images/readme2_pep8-5.png) | fix small syntax errors and apply PEP8 formatting fixes | ![pep8 validator image 6](assets/images/readme2_pep8-6.png) |
 | mildew_detector | ![pep8 validator image 7](assets/images/readme2_pep8-7.png) | fix small syntax errors and apply PEP8 formatting fixes | ![pep8 validator image 8](assets/images/readme2_pep8-8.png) |
-| mildew_detector | ![pep8 validator image 7](assets/images/readme2_pep8-7.png) | fix small syntax errors and apply PEP8 formatting fixes | ![pep8 validator image 8](assets/images/readme2_pep8-8.png) |
+| project_hypothesis | ![pep8 validator image 92](assets/images/readme2_pep8-92.png) | fix small syntax errors and apply PEP8 formatting fixes | ![pep8 validator image 93](assets/images/readme2_pep8-93.png) |
 | ml_performance_metrics | ![pep8 validator image 9](assets/images/readme2_pep8-9.png) | fix small syntax errors and apply PEP8 formatting fixes | ![pep8 validator image 91](assets/images/readme2_pep8-91.png) |
+
+### Image Size Reduction and Model Performance
+
+While resizing images was considered as a possible optimization step, the model performed well at a resolution of 256×256 pixels, and deployment to GitHub was completed successfully without need for adjustments. As a result, resizing was not implemented in this version.
+
+However, for future iterations, investigating the impact of smaller image sizes on model performance and training efficiency could be valuable – particularly if the dataset builds up over time. Optimizing image size may help ensure scalability while maintaining classification accuracy.
 
 ## Credits
 
