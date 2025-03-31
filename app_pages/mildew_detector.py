@@ -51,6 +51,11 @@ def mildew_detector_body():
 
             version = 'v1'
             resized_img = resize_input_image(img=img_pil, version=version)
+            # Add debug print statement
+            st.write(
+                "Checking model file:",
+                os.path.exists(f"outputs/{version}/mildew_detection_model.keras")
+                )
             pred_proba, pred_class = load_model_and_predict(
                                 resized_img, version=version
                                 )
