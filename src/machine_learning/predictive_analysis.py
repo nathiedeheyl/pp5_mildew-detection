@@ -49,14 +49,26 @@ def resize_input_image(img, version):
     return my_image
 
 
+# Add debug stmnts for img upl bug on depl env
 def load_model_and_predict(my_image, version):
     """
     Load trained model and make prediction on given image
     """
 
-    model = load_model(f"outputs/{version}/mildew_detection_model.keras")
+    # wrap load model and pred proba in
+    # try/except block to catch errors
+    model_path = load_model(f"outputs/{version}/mildew_detection_model.keras")
+    try:
+        model = load_model(model_path)
+    except Exception as e:
+        st.error(f"Error loading model from {model_path}: {e}")
+        return None, None
 
-    pred_proba = model.predict(my_image)[0, 0]
+    try:
+        pred_proba = model.predict(my_image)[0, 0]
+    except Exception as e:
+        st.error(f"Error during prediction: {e}")
+        return None, None
 
     target_map = {v: k for k, v in {'infected': 0, 'uninfected': 1}.items()}
     pred_class = target_map[pred_proba > 0.5]
