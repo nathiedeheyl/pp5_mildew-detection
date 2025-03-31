@@ -51,12 +51,15 @@ def mildew_detector_body():
 
             version = 'v1'
             resized_img = resize_input_image(img=img_pil, version=version)
+            st.write("Model loading ...")
             pred_proba, pred_class = load_model_and_predict(
                                 resized_img, version=version
                                 )
 
-            st.write("Model loaded. Predicting now...")
+            st.write("Model loaded. Running prediction...")
             predictions_probabilities(pred_proba, pred_class)
+            st.write("Prediction completed.")
+            st.write("Prepare figures and download option.")
 
             df_report = df_report._append(
                 {"Name": image.name, "Result": pred_class},
