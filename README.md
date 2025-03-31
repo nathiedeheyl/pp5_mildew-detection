@@ -196,10 +196,6 @@ Third, forth, and lastly - the generalized model loss and accuracy performance m
 
 ![Dashboard Design 95](assets/images/dashbaord_design95.png)
 
-## Unfixed Bugs
-
-- You will need to mention unfixed bugs and why they were unfixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable for consideration, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
-
 ## Deployment
 
 ### Heroku
@@ -217,7 +213,22 @@ Third, forth, and lastly - the generalized model loss and accuracy performance m
 
 ## Main Data Analysis and Machine Learning Libraries
 
-- Here, you should list the libraries used in the project and provide an example(s) of how you used these libraries.
+- numpy==1.26.1
+- pandas==2.1.1
+- matplotlib==3.8.0
+- seaborn==0.13.2
+- plotly==5.17.0
+- Pillow==10.0.1
+- streamlit==1.40.2
+- joblib==1.4.2
+- scikit-learn==1.3.1
+- tensorflow==2.19.0
+- keras>=3.0.0
+- Streamlit - used for dashboard development to present data and for final project delivery
+- Render - used to deploy the project as a web app.
+- Git/GitHub - used for version control and code storage
+- VSCode - IDE used to develop the project
+- Am I responsive - used to produce screenshot of the project.
 
 ## Testing
 
@@ -237,6 +248,8 @@ Third, forth, and lastly - the generalized model loss and accuracy performance m
 | page_manager | ![pep8 validator image 99](assets/images/readme2_pep8-99.png) | No fixes | - |
 | app.py | ![pep8 validator image 991](assets/images/readme2_pep8-991.png) | PEP* formatting fix: new line at end of file missing | ![pep8 validator image 992](assets/images/readme2_pep8-992.png) |
 
+I used Code Institut's PEP8 Python Linter for code validation: https://pep8ci.herokuapp.com/#
+
 ### Manual testing
 
 | Feature | Function | Screenshot | Manual Test Validation |
@@ -254,22 +267,21 @@ While resizing images was considered as a possible optimization step, the model 
 
 However, for future iterations, investigating the impact of smaller image sizes on model performance and training efficiency could be valuable – particularly if the dataset builds up over time. Optimizing image size may help ensure scalability while maintaining classification accuracy.
 
-## Credits
+## Unfixed Bugs
 
-- In this section, you need to reference where you got your content, media and from where you got extra help. It is common practice to use code from other repositories and tutorials. However, it is necessary to be very specific about these sources to avoid plagiarism.
-- You can break the credits section up into Content and Media, depending on what you have included in your project.
+- You will need to mention unfixed bugs and why they were unfixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable for consideration, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
+
+## Credits
 
 ### Content
 
-- The text for the Home page was taken from Wikipedia Article A.
-- Instructions on how to implement form validation on the Sign-Up page were taken from [Specific YouTube Tutorial](https://www.youtube.com/).
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/).
+- Information about powdery mildew I obtained mainly from the [website of the Royal Horticultural Society](https://www.rhs.org.uk/disease/powdery-mildews)
+- Instructions on business case and requirements were taken from Code-Institute's Learn Management System Content Chapter Project Portfolio Project 5 [Handbook: Mildew Detection in Cherry Leaves](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+PA_PAGPPF+2/courseware/bde016cdbd184cdeafd341a73807e138/bd2104eb84de4e48a9df6f685773cbf2/)
 
 ### Media
 
-- The photos used on the home and sign-up page are from This Open-Source site.
-- The images used for the gallery page were taken from this other open-source site.
+- The heading image was produced with [ui dev's amiresponsive tool](https://ui.dev/amiresponsive?url=https://cherryleaf-mildew-detector.onrender.com/)
 
 ## Acknowledgements (optional)
 
-- Thank the people who provided support throughout this project.
+I would like to thank my mentor, Mo Shami, who provided valuable insights and guidance during the project and without whom I could not have accomplished this project. I would also like to thank the Slack community for ongoing support and encouragement.
