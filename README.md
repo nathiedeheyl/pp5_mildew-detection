@@ -9,7 +9,7 @@ The Mildew Detection project is a data science and machine learning project deve
 The business context involves a client in the agri-food sector facing challenges with powdery mildew infections on their crops. Currently, disease detection is conducted manually, a process that is both labor-intensive and time-consuming. To enhance efficiency and reliability, this project proposes an ML-based solution that automates the identification of infected leaves from images.
 By implementing this model, the client can reduce resource expenditures, streamline disease detection, and ensure a more accurate and timely response to infections.
 
-The project is deployed as a Streamlit app on Render. You can access the live version here: [insert link].
+The project is deployed as a Streamlit app on Render. You can access the live version here: [Cherry Leaf Mildew Detector Model](https://cherryleaf-mildew-detector.onrender.com/).
 
 ## Dataset
 
@@ -158,33 +158,11 @@ The image montage shows a total of 3 colums with 8 rows selecting image data fro
 
 ![Dashboard Design 5](assets/images/dashbaord_design5.png)
 
-3 - Mildew Detector page: The heart of the project. This is the tool that the client was looking for to improve their overall business, and with the successful implementation of this tool, business requirement 2 is met, by which the client can determine whether a cherry leaf is healthy or infected with powdery mildew by relying on the model's prediction.
-
-![Dashboard Design 6](assets/images/dashbaord_design6.png)
-
-The user can either click the 'Browse files' button or drag and drop their image file onto the uploading field. 
-
-![Dashboard Design 7](assets/images/dashbaord_design7.png)
-
-On the dashboard will then be displayed the uploaded image, along with a clear feedback statement on the predicted label of the image uploaded image, as well as a bar chart showcasing the probability of this class prediction by the model:
-
-![Dashboard Design 8](assets/images/dashbaord_design8.png)
-
-And finally, an analysis report with a link giving the option to download a report of the analyzed images: 
-
-![Dashboard Design 9](assets/images/dashbaord_design9.png)
-
-![Dashboard Design 91](assets/images/dashbaord_design91.png)
-
-Clicking this link downloads a CSV file named using the moment's timestamp down to the second to create an individual file name.
+3 - The Project Hypothesis page summarizes the project's hypothesis and it's validation.
 
 ![Dashboard Design 96](assets/images/dashbaord_design96.png)
 
-4 - The Project Hypothesis page summarizes the project's hypothesis and it's validation.
-
-![Dashboard Design 96](assets/images/dashbaord_design96.png)
-
-5 - ML Performance Metrics page: To meet business requirement 3, the ml performance metrics page showcases what methods have been used to prepare, train, validate and evaluate the model. First, the label frequencies per splitted dataset (train, validation, test image dataset):
+4 - ML Performance Metrics page: To meet business requirement 3, the ml performance metrics page showcases what methods have been used to prepare, train, validate and evaluate the model. First, the label frequencies per splitted dataset (train, validation, test image dataset):
 
 ![Dashboard Design 93](assets/images/dashbaord_design93.png)
 
@@ -198,18 +176,24 @@ Third, forth, and lastly - the generalized model loss and accuracy performance m
 
 ## Deployment
 
-### Heroku
+### Render
 
-- The App live link is: `https://YOUR_APP_NAME.herokuapp.com/`
-- Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-- The project was deployed to Heroku using the following steps.
+- The App live link is: `https://cherryleaf-mildew-detector.onrender.com`
+- Set the runtime.txt Python version to a currently supported version.
+- The project was deployed to Render using the following steps:
 
-1. Log in to Heroku and create an App
-2. At the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
-6. If the slug size is too large, then add large files not required for the app to the .slugignore file.
+1. Create a Render account and log in to the dashboard.
+2. Click on the "New +" button and select "Web Service".
+3. Connect GitHub repository by selecting it from the list or connect GitHub account.
+4. Configure the service:
+  a - Name: Choose a name for the application
+  b - Environment: Select "Python"
+  c - Region: Choose the closest region
+  d - Branch: Select the branch to deploy
+  e - Build Command: pip install -r requirements.txt
+  f - Start Command: streamlit run app.py
+5. Click "Create Web Service" to initiate the deployment.
+6. Render then automatically builds and deploys the application. Once complete, the application can be accessed via the URL provided in the admin panel.
 
 ## Main Data Analysis and Machine Learning Libraries
 
@@ -261,6 +245,55 @@ I used Code Institut's PEP8 Python Linter for code validation: https://pep8ci.he
 | Mildew Detector image file upload | Drag and drop or choose and select image files for live prediction | ![testing 1](assets/images/readme4_test5.png) | ✅ |
 | Image live prediction | Predict class of uploaded image(s) and create downloadable csv file with results | - | ❌ |
 
+Bugs that occured during the work on this project were tracked as issues with the label 'bug', [please see GitHub Issues here](https://github.com/nathiedeheyl/pp5_mildew-detection/issues?q=is%3Aissue%20label%3Abug%20).
+
+#### User Story Testing
+
+Business Requirement 1: Visually differentiate a healthy cherry leaf from one with powdery mildew.
+
+(1) As a client, I can navigate intuitively through the interactive dashboard so that I can view and understand the features that distinguish a healthy from a diseased leaf.
+
+| Feature | Action | Expected Result | Actual Result |
+|---------|--------|-----------------|---------------|
+| Sidebar Navigation | Click radio buttons in sidebar | Display selected app page | ✅ Page content changes according to selection |
+| Responsive Layout | Access dashboard on different devices | Dashboard adjusts to screen size | ✅ Everything resize and reposition appropriately |
+| Checkboxes with collapsible info about data and figures | Interact with dashboard elements | Elements collaps and show information requested | ✅ |
+
+(2) As a client/researcher, I can access and visualize sample leaf images so that I can better understand the features of leaves of both classes.
+
+| Feature | Action | Expected Result | Actual Result |
+|---------|--------|-----------------|---------------|
+| Image Montage | Collapse Image Montage on Image Visualizer page, Select label, click 'Create Montage' button | Display grid of sample images | ✅ Sample images display in organized grid format |
+
+Business Requirement 2: Predicting if a cherry leaf is healthy or contains powdery mildew.
+
+(3) As a client, I want to automate disease detection from images, so that I can take action to protect crops and save on cost for resources.
+
+On locally implemented project:
+
+| Feature | Action | Expected Result | Actual Result |
+|---------|--------|-----------------|---------------|
+| Mildew Detector Tool | Upload leaf image in local environment | Receive prediction result | ✅ Model correctly identifies label of leaf and returns figures and csv file |
+| Batch Processing in Tool | Upload multiple images at once | Process multiple images and return results | ✅ Batch processing of a certian number of images works in local environment |
+| Report Generator | Generate downloadable csv report of predictions per image data | Downloads an excel file with detailed information about predictions | ✅ Report is generated, downloadable and contains all data |
+
+Business Requirement 3: Performance goal of the predictions is 97% accuracy minimum.
+
+(4) As a business owner, I want a highly accurate disease detection model, so that I can reduce losses and improve efficiency of the detection process.
+
+| Feature | Action | Expected Result | Actual Result |
+|---------|--------|-----------------|---------------|
+| Model Metrics Display Page | Showcase model metrics figures to test and evaluate model | View model performance statistics | ✅ Accuracy metrics show a performance of more than 97% |
+| Validation Results | Review model validation information | Confirmation of model generalization as numbers are displayed | Model Generalization table is displayed on dashboard |
+
+(5) As an agricultural specialist, I want detailed classification probabilities rather than binary results, so that I can make more nuanced decisions adapted to given facts.
+
+| Feature | Action | Expected Result | Actual Result |
+|---------|--------|-----------------|---------------|
+| Softmax activation function | Shows a bar chart with probability distribution per class | Show bar chart | ✅ Probability values displayed per class label |
+| Multiclass Visualization | View multiclass prediction results | Show bar chart with class label distribution | ✅ Probability values displayed per class label |
+
+
 ### Image Size Reduction and Model Performance
 
 While resizing images was considered as a possible optimization step, the model performed well at a resolution of 256×256 pixels, and deployment to GitHub was completed successfully without need for adjustments. As a result, resizing was not implemented in this version.
@@ -269,7 +302,59 @@ However, for future iterations, investigating the impact of smaller image sizes 
 
 ## Unfixed Bugs
 
-- You will need to mention unfixed bugs and why they were unfixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable for consideration, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
+### Image classification feature unavailable in deployed environment
+
+For more detail see the GitHub issue tracking this bug: [click here](https://github.com/nathiedeheyl/pp5_mildew-detection/issues/20).
+
+**Description of the bug**
+
+The image classification feature implemented to classify healthy cherry leaves and powdery mildew-infected leaves performs well on a local host but seems to be silently crashing in a deployed environment on the cloud platform. Uploading an image in the upload field results in a 502 connection error when calling the function to load the model and predict the class probability.
+
+**Steps taken to troubleshoot this issue**
+
+1. Environment validation: Controlled that the model is  being correctly identified and loaded in the deployed environment.
+2. Path Verification: Checked all directory and file paths to ensure they are appropriately specified and leading to the same files within the deployment environment.
+3. Error Handling: Added try/except blocks to catch and display any errors during model load and model prediction, but unfortunately to no further clarifying result.
+4. Debugging: Added st.write statements throughout the functions to verify the execution to determine the failure point precisely.
+5. Dependency Management: Ran various package configurations in requirements.txt, mainly for TensorFlow dependency packages, to address potential compatibility issues.
+
+Despite these efforts, the bug persists in the deployed environment. The 502 connection error suggests a possible resource limitation. The exact underlying cause remains in question as the application behaves differently in the local versus deployed environment. For the current implementation phase, this feature has been removed from the public-facing dashboard.
+
+**Workaround**
+
+The client can still utilize the full functionality of the application by installing and deploying it locally, which aligns with their immediate internal use case. This allows the organization to utilize the image classification feature while a more robust cloud deployment solution is addressed and developed in future iterations. With this internal and local implementation of the project, business requirement 2 is met, by which the client can determine whether a cherry leaf is healthy or infected with powdery mildew by consulting the model's prediction.
+
+This is what the page and feature look like locally deployed:
+
+A comprehensive page with intuitive user interface:
+
+![Dashboard Design 6](assets/images/dashbaord_design6.png)
+
+The user can either click the 'Browse files' button or drag and drop their image file onto the uploading field. 
+
+![Dashboard Design 7](assets/images/dashbaord_design7.png)
+
+On the dashboard will then be displayed the uploaded image, along with a clear feedback statement on the predicted label of the image uploaded image, as well as a bar chart showcasing the probability of this class prediction by the model:
+
+![Dashboard Design 8](assets/images/dashbaord_design8.png)
+
+And finally, an analysis report with a link giving the option to download a report of the analyzed images: 
+
+![Dashboard Design 9](assets/images/dashbaord_design9.png)
+
+![Dashboard Design 91](assets/images/dashbaord_design91.png)
+
+Clicking this link downloads a CSV file named using the moment's timestamp down to the second to create an individual file name.
+
+![Dashboard Design 96](assets/images/dashbaord_design96.png)
+
+**Future Development**
+
+In future development cycles, the following approaches will be considered:
+
+- Optimizing the model size and computational requirements, as well as identifying specific resource constraints.
+- More extensive troubleshooting on possibilities to downgrade packages and dependencies without compromising compatibility.
+- Exploring alternative deployment platforms.
 
 ## Credits
 
