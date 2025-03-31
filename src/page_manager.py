@@ -1,5 +1,4 @@
 import streamlit as st
-import os
 
 
 # Manage multiple Streamlit pages in one app
