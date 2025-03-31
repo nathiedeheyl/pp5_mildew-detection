@@ -55,6 +55,8 @@ def mildew_detector_body():
                                 resized_img, version=version
                                 )
 
+            st.write("Model loading. Predicting now...")
+
             predictions_probabilities(pred_proba, pred_class)
 
             df_report = df_report._append(
