@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-[Am I Responsive Hero Image]
+![Am I Responsive Hero Image](assets/images/hero_image.png)
 
 The Mildew Detection project is a data science and machine learning project developed as part of the "Predictive Analytics" specialization for the Code Institute final portfolio project. The project employs a machine learning model to differentiate between two image categories: healthy cherry leaves and those infected with powdery mildew.
 
@@ -231,6 +231,22 @@ Third, forth, and lastly - the generalized model loss and accuracy performance m
 | mildew_detector | ![pep8 validator image 7](assets/images/readme2_pep8-7.png) | fix small syntax errors and apply PEP8 formatting fixes | ![pep8 validator image 8](assets/images/readme2_pep8-8.png) |
 | project_hypothesis | ![pep8 validator image 92](assets/images/readme2_pep8-92.png) | fix small syntax errors and apply PEP8 formatting fixes | ![pep8 validator image 93](assets/images/readme2_pep8-93.png) |
 | ml_performance_metrics | ![pep8 validator image 9](assets/images/readme2_pep8-9.png) | fix small syntax errors and apply PEP8 formatting fixes | ![pep8 validator image 91](assets/images/readme2_pep8-91.png) |
+| evaluate_clf | ![pep8 validator image 94](assets/images/readme2_pep8-94.png) | PEP8 formatting fix: new line at end of file missing | ![pep8 validator image 95](assets/images/readme2_pep8-95.png) |
+| predictive_analytics | ![pep8 validator image 96](assets/images/readme2_pep8-96.png) | PEP8 formatting fix: new line at end of file missing | ![pep8 validator image 97](assets/images/readme2_pep8-97.png) |
+| data_management | ![pep8 validator image 98](assets/images/readme2_pep8-98.png) | No fixes | - |
+| page_manager | ![pep8 validator image 99](assets/images/readme2_pep8-99.png) | No fixes | - |
+| app.py | ![pep8 validator image 991](assets/images/readme2_pep8-991.png) | PEP* formatting fix: new line at end of file missing | ![pep8 validator image 992](assets/images/readme2_pep8-992.png) |
+
+### Manual testing
+
+| Feature | Function | Screenshot | Manual Test Validation |
+|---------|----------|------------|------------------------|
+| Radio button side bar navigation menu | Site navigation: All sites accessible after clicking radio button | ![testing 1](assets/images/readme4_test1.png) | ✅ |
+| Collapsible navigation side menu | Collapsible and responsive side bar navigation | ![testing 1](assets/images/readme4_test2.png) ![testing 1](assets/images/readme4_test3.png) | ✅ |
+| Link to README file | Redirects to README file | ![testing 1](assets/images/readme4_test4.png) | ✅ |
+| Three checkboxes for project image visualization | Collapse the information described | see Dashboard Design above | ✅ |
+| Mildew Detector image file upload | Drag and drop or choose and select image files for live prediction | ![testing 1](assets/images/readme4_test5.png) | ✅ |
+| Image live prediction | Predict class of uploaded image(s) and create downloadable csv file with results | - | ❌ |
 
 ### Image Size Reduction and Model Performance
 
