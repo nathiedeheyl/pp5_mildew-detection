@@ -26,7 +26,7 @@ class MultiPage:
         st.set_page_config(
           page_title="Cherry Leaf Powdery Mildew Detector",
           page_icon="🍒",
-        )
+          )
 
     def add_page(self, title, func):
         """
