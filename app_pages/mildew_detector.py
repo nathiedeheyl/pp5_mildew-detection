@@ -2,7 +2,6 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 import pandas as pd
-import os
 
 from src.data_management import download_dataframe_as_csv
 from src.machine_learning.predictive_analysis import (
@@ -52,11 +51,6 @@ def mildew_detector_body():
 
             version = 'v1'
             resized_img = resize_input_image(img=img_pil, version=version)
-            # Add debug print statement
-            st.write(
-                "Checking model file:",
-                os.path.exists(f"outputs/{version}/mildew_detection_model.keras")
-                )
             pred_proba, pred_class = load_model_and_predict(
                                 resized_img, version=version
                                 )
