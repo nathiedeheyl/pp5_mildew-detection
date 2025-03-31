@@ -1,4 +1,19 @@
 import streamlit as st
+# Debugging predictions on deployment step
+import os
+
+
+# Debugging
+# Print current working directory
+st.write("Current working directory:", os.getcwd())
+
+# List files in output folder
+# Make sure model is listed in those files
+try:
+    files = os.listdir("outputs/v1")
+    st.write("Files in outputs/v1:", files)
+except Exception as e:
+    st.error(f"Could not list files in outputs/v1: {e}")
 
 
 # Manage multiple Streamlit pages in one app
