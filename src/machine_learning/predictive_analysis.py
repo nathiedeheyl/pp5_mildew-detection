@@ -10,7 +10,8 @@ import random
 
 def predictions_probabilities(pred_proba, pred_class):
     """
-    A function to visualize the predicted probabilities for whether an image shows a healthy cherry leaf or not
+    A function to visualize the predicted probabilities
+    for whether an image shows a healthy cherry leaf or not
     """
 
     prob_per_class = pd.DataFrame(
@@ -49,15 +50,12 @@ def resize_input_image(img, version):
     return my_image
 
 
-# Add debug stmnts for img upl bug on depl env
 def load_model_and_predict(my_image, version):
     """
     Load trained model and make prediction on given image
     """
 
-    # wrap load model and pred proba in
-    # try/except block to catch errors
-    model_path = load_model(f"outputs/{version}/mildew_detection_model.keras")
+    model_path = f"outputs/{version}/mildew_detection_model.keras"
     try:
         model = load_model(model_path)
     except Exception as e:
