@@ -23,11 +23,11 @@ The client is concerned that the outbreak may be impacting crop quality. By anal
 
 The dataset consists of image files categorized into separate directories (/healthy; /powdery_mildew) for supervised machine learning tasks.
 
-This dataset is used for achieving the project objectives, as it provides the necessary visual features to train a Convolutional Neural Network model to classify cherry leaves with high accuracy.
+Also, the dataset is used for achieving the project objectives, as it provides the necessary visual features to train a Convolutional Neural Network model to classify cherry leaves with high accuracy.
 
 ## Business Requirements
 
-The client has outlined two key Business Requirements: 
+The client has outlined three key Business Requirements: 
 - 1 - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
 - 2 - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
 - 3 - The criteria for the performance goal of the predictions has been agreed on a degree of 97% accuracy.
@@ -39,6 +39,7 @@ The primary objective of this project is to develop a machine learning model cap
 Since the dataset contains a balanced representation of both healthy and diseased leaves, it allows for effective training and testing of a classification model.
 
 ![Class Distribution Figure](assets/images/readme1_classdistrib.png)
+<br>See here above class distribution after splitting the dataset into test, validation and train sets.
 
 Key stakeholders for this project include the agricultural business (Farmy & Foods) and their customers, who rely on high-quality produce.
 
@@ -48,17 +49,17 @@ By using this dataset, the project aligns with the CRISP-DM "Business Understand
 
 ### Hypothesis: Visual Differentiation Between Healthy and Infected Leaves
 
-Hypothesis One is that cherry leaves affected by powdery mildew show distinct visual characteristics compared to healthy leaves, making it possible to differentiate them through image analysis. For instance, infected leaves are expected to display light, irregular spots, in contrast to the general green color of healthy leaves.
+The hypothesis is, that cherry leaves affected by powdery mildew show distinct visual characteristics compared to healthy leaves, making it possible to differentiate them through image analysis. For instance, infected leaves are expected to display light, irregular spots, in contrast to the general green color of healthy leaves.
 
 #### Validation
 
-To test Hypothesis One, the average image and variability for each class ('healthy' and infected with 'powdery mildew') is generated to highlight dividing patterns.
+To test the hypothesis, the average image and variability for each class ('healthy' and infected with 'powdery mildew') is generated to highlight dividing patterns.
 
 ![Average and Variability per class Image](assets/images/readme3_avrnvar1.png)
 
 ![Average and Variability per class Image](assets/images/readme3_avrnvar2.png)
 
-These visualizations confirm that powdery mildew leaves typically reveal a speckled pattern not present in healthy leaves, supporting the hypothesis. The ML model trained on this dataset also achieves high predictive accuracy (99%), validating that these differences are significant enough for automated classification.
+These visualizations confirm that powdery mildew leaves typically reveal a speckled pattern not present in healthy leaves. The leaf veins are more prominent in infested leaves, and it is possible to see in particular from the variability image of healthy leaves that these usually do not show any striking contrast. The central main part of a healthy leaf is usually a uniform, rich green color and has no contrasting veins. This distinction is therefore supporting the hypothesis. The ML model trained on this dataset also achieves high predictive accuracy (99%), validating that these differences are significant enough for automated classification.
 
 ## Rationale to Map Business Requirements to Data Visualisations and ML Tasks
 
@@ -74,7 +75,7 @@ To ensure the machine learning solution aligns with business needs, each busines
 
 To meet the business requirements effectively, the following steps are necessary:
 * The prepared dataset should provide representative images of both healthy and infected leaves, as well as visualizations showing variations within each category (image montage, average image, class distribution plot, average and variability per label plot, image augmentation)
-* The model must accurately classify leaves as healthy or infected with powdery mildew (Model validation and evaluation)
+* The model must accurately classify leaves as healthy or infected with powdery mildew (Model validation)
 * The system should process images uploaded on the dashboard by the client efficiently
 * Predictions should be generated quickly to facilitate real-time decision-making
 * The output should be easy to understand for both technical and non-technical users
@@ -166,7 +167,8 @@ The image montage shows a total of 3 colums with 8 rows selecting image data fro
 
 ![Dashboard Design 93](assets/images/dashbaord_design93.png)
 
-Second, the history of model training performance figures: 
+Second, the history of model training performance figures: <br>
+[See GitHub Issue about Learning Curves on Accuracy and Loss](https://github.com/nathiedeheyl/pp5_mildew-detection/issues/22)
 
 ![Dashboard Design 94](assets/images/dashbaord_design94.png)
 
@@ -178,7 +180,7 @@ Third, forth, and lastly - the generalized model loss and accuracy performance m
 
 ### Render
 
-- The App live link is: `https://cherryleaf-mildew-detector.onrender.com`
+- [App live link](https://cherryleaf-mildew-detector.onrender.com)
 - Set the runtime.txt Python version to a currently supported version.
 - The project was deployed to Render using the following steps:
 
@@ -230,7 +232,7 @@ Third, forth, and lastly - the generalized model loss and accuracy performance m
 | predictive_analytics | ![pep8 validator image 96](assets/images/readme2_pep8-96.png) | PEP8 formatting fix: new line at end of file missing | ![pep8 validator image 97](assets/images/readme2_pep8-97.png) |
 | data_management | ![pep8 validator image 98](assets/images/readme2_pep8-98.png) | No fixes | - |
 | page_manager | ![pep8 validator image 99](assets/images/readme2_pep8-99.png) | No fixes | - |
-| app.py | ![pep8 validator image 991](assets/images/readme2_pep8-991.png) | PEP* formatting fix: new line at end of file missing | ![pep8 validator image 992](assets/images/readme2_pep8-992.png) |
+| app.py | ![pep8 validator image 991](assets/images/readme2_pep8-991.png) | PEP8 formatting fix: new line at end of file missing | ![pep8 validator image 992](assets/images/readme2_pep8-992.png) |
 
 I used Code Institut's PEP8 Python Linter for code validation: https://pep8ci.herokuapp.com/#
 
@@ -243,7 +245,7 @@ I used Code Institut's PEP8 Python Linter for code validation: https://pep8ci.he
 | Link to README file | Redirects to README file | ![testing 1](assets/images/readme4_test4.png) | ✅ |
 | Three checkboxes for project image visualization | Collapse the information described | see Dashboard Design above | ✅ |
 | Mildew Detector image file upload | Drag and drop or choose and select image files for live prediction | ![testing 1](assets/images/readme4_test5.png) | ✅ |
-| Image live prediction | Predict class of uploaded image(s) and create downloadable csv file with results | - | ❌ |
+| Image live prediction on deployed webpage | Predict class of uploaded image(s) and create downloadable csv file with results in deployed environment | - | ❌ |
 
 Bugs that occured during the work on this project were tracked as issues with the label 'bug', [please see GitHub Issues here](https://github.com/nathiedeheyl/pp5_mildew-detection/issues?q=is%3Aissue%20label%3Abug%20).
 
@@ -284,7 +286,7 @@ Business Requirement 3: Performance goal of the predictions is 97% accuracy mini
 | Feature | Action | Expected Result | Actual Result |
 |---------|--------|-----------------|---------------|
 | Model Metrics Display Page | Showcase model metrics figures to test and evaluate model | View model performance statistics | ✅ Accuracy metrics show a performance of more than 97% |
-| Validation Results | Review model validation information | Confirmation of model generalization as numbers are displayed | Model Generalization table is displayed on dashboard |
+| Validation Results | Review model validation information | Confirmation of model generalization as numbers are displayed | ✅ Model Generalization table is displayed on dashboard |
 
 (5) As an agricultural specialist, I want detailed classification probabilities rather than binary results, so that I can make more nuanced decisions adapted to given facts.
 
@@ -346,8 +348,6 @@ And finally, an analysis report with a link giving the option to download a repo
 
 Clicking this link downloads a CSV file named using the moment's timestamp down to the second to create an individual file name.
 
-![Dashboard Design 96](assets/images/dashbaord_design96.png)
-
 **Future Development**
 
 In future development cycles, the following approaches will be considered:
@@ -358,6 +358,8 @@ In future development cycles, the following approaches will be considered:
 
 ## Credits
 
+I developed this project with guidance from Code Institute's imaging walkthrough tutorial, which served as a foundational reference throughout the development process and drew from Code Institute's example project ideas. The methodologies and implementation approaches are relying on the educational content provided from this resource, while adapting the concepts to meet the specific requirements.
+
 ### Content
 
 - Information about powdery mildew I obtained mainly from the [website of the Royal Horticultural Society](https://www.rhs.org.uk/disease/powdery-mildews)
@@ -367,6 +369,6 @@ In future development cycles, the following approaches will be considered:
 
 - The heading image was produced with [ui dev's amiresponsive tool](https://ui.dev/amiresponsive?url=https://cherryleaf-mildew-detector.onrender.com/)
 
-## Acknowledgements (optional)
+## Acknowledgements
 
 I would like to thank my mentor, Mo Shami, who provided valuable insights and guidance during the project and without whom I could not have accomplished this project. I would also like to thank the Slack community for ongoing support and encouragement.
